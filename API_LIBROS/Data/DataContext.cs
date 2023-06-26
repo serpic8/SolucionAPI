@@ -68,6 +68,15 @@ namespace API_LIBROS.Data
                     CATEGORIA = "Slice of Life",
                     EXISTENCIA = 1
 
+                },
+                new Libros()
+                {
+                    ID_AUTOR = 7,
+                    TITULO = "Green Lantern:Legacy",
+                    PRECIO = 700.00,
+                    CATEGORIA = "Action",
+                    EXISTENCIA = 20
+
                 });        
         }
     }
