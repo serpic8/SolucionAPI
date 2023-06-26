@@ -1,4 +1,7 @@
+using API_LIBROS;
 using API_LIBROS.Data;
+using API_LIBROS.Repository;
+using API_LIBROS.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,10 @@ builder.Services.AddDbContext<DataContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddAutoMapper(typeof(MappingConfig));
+
+builder.Services.AddScoped<ILibrosRepository, LibrosRepository>();
 
 var app = builder.Build();
 
