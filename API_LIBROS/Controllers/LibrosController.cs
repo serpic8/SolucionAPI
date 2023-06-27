@@ -25,7 +25,7 @@ namespace API_LIBROS.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")] //Roles con los cuales puedo usar la autorizacion, para ver los role puedo observar el data contexts
         public async Task<ActionResult<IEnumerable<LibrosDto>>> GetProducts()
         {
             _logger.LogInformation("Obtener los libros");
