@@ -11,6 +11,7 @@ namespace API_LIBROS.Data
         }
 
         public DbSet<Libros> libros => Set<Libros>();
+        public DbSet<User> user => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -77,7 +78,19 @@ namespace API_LIBROS.Data
                     CATEGORIA = "Action",
                     EXISTENCIA = 20
 
-                });        
+                });
+            modelBuilder.Entity<User>().HasData(
+                new User()
+                {
+                    Name = "Usuario",
+                    Password = "123456"
+                },
+                new User()
+                {
+                    Name = "Otro Usuario",
+                    Password = "7890"
+                }
+            );
         }
     }
 }

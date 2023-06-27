@@ -2,6 +2,8 @@ using API_LIBROS;
 using API_LIBROS.Data;
 using API_LIBROS.Repository;
 using API_LIBROS.Repository.IRepository;
+using API_LIBROS.Security;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,9 +20,14 @@ builder.Services.AddDbContext<DataContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddAutoMapper(typeof(MappingConfig));
+builder.Services.AddAutoMapper(typeof(MappingConfig));  
 
 builder.Services.AddScoped<ILibrosRepository, LibrosRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();  //Para la autenticacion
+
+builder.Services.AddAuthentication("BasicAuthentication")  //Authentication
+    .AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>
+    ("BasicAuthentication", null);
 
 var app = builder.Build();
 
@@ -32,6 +39,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication(); //Para authenticacion
 
 app.UseAuthorization();
 

@@ -1,12 +1,14 @@
 ﻿using API_LIBROS.Models.Dto;
 using API_LIBROS.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_LIBROS.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LibrosController : ControllerBase
     {
         private readonly ILogger<LibrosController> _logger;
