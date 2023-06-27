@@ -78,17 +78,30 @@ namespace API_LIBROS.Data
                     CATEGORIA = "Action",
                     EXISTENCIA = 20
 
+                },
+                new Libros()
+                {
+                    ID_AUTOR = 8,
+                    TITULO = "Flash-Point",
+                    PRECIO = 700.00,
+                    CATEGORIA = "Action",
+                    EXISTENCIA = 5
+
                 });
             modelBuilder.Entity<User>().HasData(
                 new User()
                 {
-                    Name = "Usuario",
-                    Password = "123456"
+                    Id = 1,
+                    Name = "admin",
+                    Password = "123.",
+                    Role = "Admin"
                 },
                 new User()
                 {
-                    Name = "Otro Usuario",
-                    Password = "7890"
+                    Id = 2,
+                    Name = "usuario",
+                    Password = "123.",
+                    Role = "Public"
                 }
             );
         }

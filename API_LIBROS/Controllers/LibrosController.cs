@@ -24,6 +24,8 @@ namespace API_LIBROS.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<LibrosDto>>> GetProducts()
         {
             _logger.LogInformation("Obtener los libros");
