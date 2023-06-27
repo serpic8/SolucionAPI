@@ -11,6 +11,7 @@ namespace API_LIBROS.Data
         }
 
         public DbSet<Libros> libros => Set<Libros>();
+        public DbSet<Autores> autores => Set<Autores>();
         public DbSet<User> user => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,7 +32,8 @@ namespace API_LIBROS.Data
                     TITULO = "EL Alquimista",
                     PRECIO = 800.00,
                     CATEGORIA = "Historia",
-                    EXISTENCIA = 4
+                    EXISTENCIA = 4,
+                    
 
                 },
                 new Libros()
@@ -104,6 +106,47 @@ namespace API_LIBROS.Data
                     Role = "Public"
                 }
             );
+            modelBuilder.Entity<Autores>().HasData(
+                new Autores()
+                {
+                    ID_AUTOR = 1,
+                    AUTOR = "Juan Luis"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 2,
+                    AUTOR = "Miguel Uribina"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 3,
+                    AUTOR = "Ale"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 4,
+                    AUTOR = "Boba"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 5,
+                    AUTOR = "Lloron"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 6,
+                    AUTOR = "Hambre"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 7,
+                    AUTOR = "Dio mio"
+                },
+                new Autores()
+                {
+                    ID_AUTOR = 8,
+                    AUTOR = "Ojala Funcione"
+                });
         }
     }
 }

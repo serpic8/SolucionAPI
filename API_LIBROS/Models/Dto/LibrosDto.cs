@@ -11,5 +11,7 @@
         public string CATEGORIA { get; set; }
 
         public int EXISTENCIA { get; set; }
+
+        public string AUTOR { get; set; }
     }
 }
