@@ -28,5 +28,7 @@ namespace API_LIBROS.Controllers
             var librosList = await _librosRepo.GetAll();
             return Ok(_mapper.Map<IEnumerable<LibrosDto>>(librosList));
         }
+
+
     }
 }
